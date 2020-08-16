@@ -9,11 +9,14 @@ import Header from './Components/Header';
 import LifeCycle from './Components/LifeCycle';
 import ComVsPureCom from './Components/ComVsPureCom';
 import ReactMemo from './Components/ReactMemo';
+import AjaxCall from './Components/AjaxCall';
+
 const menus = [
   'lifeCyclte',
   'about',
   'ComVsPureCom',
-  'ReactMemo'
+  'ReactMemo',
+  'ajaxCall'
 ];
 
 function App() {
@@ -32,6 +35,9 @@ function App() {
           </Route>
           <Route path="/lifeCyclte">
             <LifeCycle />
+          </Route>
+          <Route path="/ajaxCall">
+            <AjaxCall />
           </Route>
         </Switch>
       </div>
