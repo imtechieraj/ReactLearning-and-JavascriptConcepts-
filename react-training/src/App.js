@@ -10,20 +10,24 @@ import LifeCycle from './Components/LifeCycle';
 import ComVsPureCom from './Components/ComVsPureCom';
 import ReactMemo from './Components/ReactMemo';
 import AjaxCall from './Components/AjaxCall';
+import Fragments from './Components/Fragments';
+import PropTypes from './Components/PropTypes';
 
 const menus = [
   'lifeCyclte',
   'about',
   'ComVsPureCom',
   'ReactMemo',
-  'ajaxCall'
+  'ajaxCall',
+  'Fragments',
+  'PropTypes'
 ];
 
 function App() {
   return (
     <Router>
       <div>
-        <Header headerData={menus}/>
+        <Header headerData={menus} />
         {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
         <Switch>
@@ -38,6 +42,12 @@ function App() {
           </Route>
           <Route path="/ajaxCall">
             <AjaxCall />
+          </Route>
+          <Route path="/Fragments">
+            <Fragments />
+          </Route>
+          <Route path="/PropTypes">
+            <PropTypes />
           </Route>
         </Switch>
       </div>
