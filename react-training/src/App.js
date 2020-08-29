@@ -13,6 +13,8 @@ import AjaxCall from './Components/AjaxCall';
 import Fragments from './Components/Fragments';
 import PropTypes from './Components/PropTypes';
 import EventHandling from './Components/EventHandling';
+import HocExample from './Components/Hoc/HocExample';
+
 const menus = [
   'lifeCyclte',
   'about',
@@ -21,7 +23,8 @@ const menus = [
   'ajaxCall',
   'Fragments',
   'PropTypes',
-  'EventHandling'
+  'EventHandling',
+  'HocExample'
 ];
 
 function App() {
@@ -52,6 +55,9 @@ function App() {
           </Route>
           <Route path="/EventHandling">
             <EventHandling />
+          </Route>
+          <Route path="/HocExample">
+            <HocExample />
           </Route>
         </Switch>
       </div>
