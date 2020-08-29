@@ -12,7 +12,7 @@ import ReactMemo from './Components/ReactMemo';
 import AjaxCall from './Components/AjaxCall';
 import Fragments from './Components/Fragments';
 import PropTypes from './Components/PropTypes';
-
+import EventHandling from './Components/EventHandling';
 const menus = [
   'lifeCyclte',
   'about',
@@ -20,7 +20,8 @@ const menus = [
   'ReactMemo',
   'ajaxCall',
   'Fragments',
-  'PropTypes'
+  'PropTypes',
+  'EventHandling'
 ];
 
 function App() {
@@ -48,6 +49,9 @@ function App() {
           </Route>
           <Route path="/PropTypes">
             <PropTypes />
+          </Route>
+          <Route path="/EventHandling">
+            <EventHandling />
           </Route>
         </Switch>
       </div>
