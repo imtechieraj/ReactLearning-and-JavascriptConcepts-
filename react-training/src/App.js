@@ -14,6 +14,7 @@ import Fragments from './Components/Fragments';
 import PropTypes from './Components/PropTypes';
 import EventHandling from './Components/EventHandling';
 import HocExample from './Components/Hoc/HocExample';
+import ReactRef from './Components/ReactRef'
 
 const menus = [
   'lifeCyclte',
@@ -24,7 +25,8 @@ const menus = [
   'Fragments',
   'PropTypes',
   'EventHandling',
-  'HocExample'
+  'HocExample',
+  'ReactRef'
 ];
 
 function App() {
@@ -58,6 +60,9 @@ function App() {
           </Route>
           <Route path="/HocExample">
             <HocExample />
+          </Route>
+          <Route path="/ReactRef">
+            <ReactRef />
           </Route>
         </Switch>
       </div>
