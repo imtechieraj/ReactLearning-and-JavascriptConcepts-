@@ -16,6 +16,8 @@ import EventHandling from './Components/EventHandling';
 import HocExample from './Components/Hoc/HocExample';
 import ReactRef from './Components/ReactRef';
 import ChildToParent from './Components/ChildToParent';
+import ErrorBoundary from './Components/ErrorBoundary/ErrorBoundary';
+
 const menus = [
   'lifeCyclte',
   'about',
@@ -27,7 +29,8 @@ const menus = [
   'EventHandling',
   'HocExample',
   'ReactRef',
-  'ChildToParent'
+  'ChildToParent',
+  'ErrorBoundary'
 ];
 
 function App() {
@@ -67,6 +70,9 @@ function App() {
           </Route>
           <Route path="/ChildToParent">
             <ChildToParent />
+          </Route>
+          <Route path="/ErrorBoundary">
+            <ErrorBoundary />
           </Route>
         </Switch>
       </div>
