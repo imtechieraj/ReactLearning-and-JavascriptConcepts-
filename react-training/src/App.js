@@ -17,6 +17,7 @@ import HocExample from './Components/Hoc/HocExample';
 import ReactRef from './Components/ReactRef';
 import ChildToParent from './Components/ChildToParent';
 import ErrorBoundary from './Components/ErrorBoundary/ErrorBoundary';
+import ReduxExample from './Components/Redux/';
 
 const menus = [
   'lifeCyclte',
@@ -30,7 +31,8 @@ const menus = [
   'HocExample',
   'ReactRef',
   'ChildToParent',
-  'ErrorBoundary'
+  'ErrorBoundary',
+  'Redux'
 ];
 
 function App() {
@@ -73,6 +75,9 @@ function App() {
           </Route>
           <Route path="/ErrorBoundary">
             <ErrorBoundary />
+          </Route>
+          <Route path="/Redux">
+            <ReduxExample />
           </Route>
         </Switch>
       </div>

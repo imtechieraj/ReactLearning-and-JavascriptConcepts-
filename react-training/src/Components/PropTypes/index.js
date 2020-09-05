@@ -1,5 +1,6 @@
 import React from 'react';
 import PropstypeCheck from './PropstypeCheck';
+import store, { Increment, Decrement } from "../Redux/Store/store";
 
 class PropTypes extends React.PureComponent {
     constructor() {
@@ -11,6 +12,7 @@ class PropTypes extends React.PureComponent {
         }
     }
     render() {
+        console.log(store.getState())
         return (
             <div>
                 <h1>PropTypes example</h1>
