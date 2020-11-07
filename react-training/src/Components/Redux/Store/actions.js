@@ -1,4 +1,4 @@
-import { Apicall, Increment, Decrement } from './const';
+import { Apicall, Increment, Decrement,Search } from './const';
 
 export function ajaxcall(payload) {
     console.log("I am ajax call")
@@ -17,5 +17,12 @@ export function incrementFunction() {
 export function decrementFunction() {
     return {
         type: Decrement
+    }
+}
+
+export function searchFunction(payload) {
+    return {
+        type: Search,
+        payload
     }
 }

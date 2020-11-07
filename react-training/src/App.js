@@ -18,6 +18,7 @@ import ReactRef from './Components/ReactRef';
 import ChildToParent from './Components/ChildToParent';
 import ErrorBoundary from './Components/ErrorBoundary/ErrorBoundary';
 import ReduxExample from './Components/Redux/';
+import Redux2 from './Components/Redux2';
 
 const menus = [
   'lifeCyclte',
@@ -32,7 +33,8 @@ const menus = [
   'ReactRef',
   'ChildToParent',
   'ErrorBoundary',
-  'Redux'
+  'Redux',
+  'Redux2'
 ];
 
 function App() {
@@ -78,6 +80,9 @@ function App() {
           </Route>
           <Route path="/Redux">
             <ReduxExample />
+          </Route>
+          <Route path="/Redux2">
+            <Redux2 />
           </Route>
         </Switch>
       </div>

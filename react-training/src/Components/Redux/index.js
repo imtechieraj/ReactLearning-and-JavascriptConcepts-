@@ -1,14 +1,20 @@
 import React from "react";
 import store from "./Store/store";
 // import { Increment, Decrement } from "./Store/const";
-import { ajaxcall, incrementFunction, decrementFunction } from "./Store/actions";
+import { ajaxcall, incrementFunction, decrementFunction, searchFunction } from "./Store/actions";
 import { connect } from 'react-redux'
 import Cards from '../AjaxCall/Cards';
 import PropsShare from './PropsShare';
+import { makeGetBarState, makeGetAlState, makeGetTotalMark } from './selectors'
+
 // console.log(ajaxcall)
 class ReduxExample extends React.PureComponent {
     constructor() {
-        super()
+        super();
+        this.state = {
+            searchVal: ""
+        }
+        console.log(store)
     }
     Increment = () => {
         //Actions
@@ -47,12 +53,36 @@ class ReduxExample extends React.PureComponent {
         })
     }
 
+    // static defaultProps={
+    //     id:null
+    // }
+    searchFun = (e) => {
+        console.log(e.target.value)
+        this.setState({ searchVal: e.target.value })
+        // let convertInt = parseInt(e.target.value)
+        // if (e.target.value === "") {
+        //     this.setState({ searchVal: 1 }, () => {
+        //         this.props.searchFunctionProps(1)
+        //     })
+        // } else {
+        // this.setState({ searchVal: e.target.value }, () => {
+        //     this.props.searchFunctionProps(e.target.value)
+        // })
+        // }
+
+    }
+
+    searchBtn = () => {
+        this.props.searchFunctionProps(this.state.searchVal)
+    }
+
     render() {
         console.log(this.props)
         return (
             <div>
                 <h1>Redux Example</h1>
-
+                <input type="text" value={this.state.searchVal} onChange={this.searchFun}></input> <br />
+                <button onClick={this.searchBtn}>Submit</button>
                 <button onClick={this.Increment}>Increment</button>
                 <button onClick={this.Decrement}>Decrement</button>
                 <button onClick={this.Apicall}>Ajax Call</button>
@@ -63,10 +93,25 @@ class ReduxExample extends React.PureComponent {
     }
 }
 
-const mapStateToProps = (state) => {
-    console.log("I am a mapStateToprops")
-    console.log("I am a mapStateToprops", state)
-    return state
+// const mapStateToProps = (state,ownProps) => {
+//     console.log("I am a mapStateToprops")
+//     console.log("I am a mapStateToprops", state)
+//     console.log("I am a mapStateToprops --- OwnProps", ownProps)
+//     return state
+// }
+
+const makeMapStateToProps = () => {
+    const getBarState = makeGetBarState()
+    const getallState = makeGetAlState();
+    const totalMark = makeGetTotalMark();
+    const mapStateToProps = (state, props) => {
+        return {
+            bar: getBarState(state, props),
+            allState: getallState(state, props),
+            totalMark: totalMark(state)
+        }
+    }
+    return mapStateToProps
 }
 
 
@@ -74,8 +119,10 @@ const mapDispatchToProps = (dispatch) => {
     return {
         ajaxCallforProps: data => dispatch(ajaxcall(data)),
         incrementFunctionProps: () => dispatch(incrementFunction()),
-        decrementFunctionProps: () => dispatch(decrementFunction())
+        decrementFunctionProps: () => dispatch(decrementFunction()),
+        searchFunctionProps: (data) => dispatch(searchFunction(data))
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReduxExample);
+export default connect(makeMapStateToProps, mapDispatchToProps)(ReduxExample);
+// export default connect(mapStateToProps, mapDispatchToProps)(ReduxExample);

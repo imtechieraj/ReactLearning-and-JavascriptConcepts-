@@ -1,0 +1,1 @@
+export const ajaxCallData='ajaxCallData';
